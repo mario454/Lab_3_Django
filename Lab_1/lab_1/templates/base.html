@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base-Parent{% endblock %}</title>
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <table width="100%" id="base">
+        <tr>
+            <td id="header">
+                <a href="{% url 'alltracks'%}">Tracks</a>
+                <a href="{% url 'alltrainees'%}">Trainees</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% block content %}
+                Content
+                {% endblock %}
+            </td>
+        </tr>
+        <tr id="footer">
+            <td>
+                Copyrights &#169; are reserved to ITI
+            </td>
+        </tr>
+    </table>
+    <script src="{% static 'js/asd.js'%}"></script>
+</body>
+
+</html>

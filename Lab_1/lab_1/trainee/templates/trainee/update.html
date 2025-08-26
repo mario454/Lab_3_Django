@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Insert Trainee
+{% endblock %}
+
+{% block content %}
+<h1>Update Trainee</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="trName">Name:</label>
+    <input type="text" id="trName" name="trName" value="{{trainee.name}}">
+    <br><br>
+    <label for="trEmail">Email:</label>
+    <input type="email" id="trEmail" name="trEmail"  value="{{trainee.email}}">
+    <br><br>
+    <select id="trtrack" name="trtrack">
+        {% for track in tracks %}
+            {% if track.id == trainee.trackid.id %}
+                <option value="{{track.id}}" selected>{{track.name}}</option>
+            {% else %}
+                <option value="{{track.id}}">{{track.name}}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br><br>
+    {% if block %}
+    <label for="">Current Image:</label>
+    <img src="{{ trainee.image.url }}" width="100px">
+    <br><br>
+    {% endif %}
+    <label for="trImage">Image:</label>
+    <input type="file" id="trImage" name="trImage">
+    <br><br>
+    <label for="trstatus">Status:</label>
+    <input type="checkbox" id="trstatus" name="trstatus" {% if trainee.status %}checked{% endif %}>
+    <br><br>
+    <input type="submit" value="Update Trainee">
+</form>
+{% endblock %}

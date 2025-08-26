@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+{% load static %}
+
+{%block style %}
+<link href="{% static 'css/register.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<form method="GET" action="..\templates\Thankyou.html">
+    <table align="center">
+        <tr>
+            <th colspan="2">
+                <h2>Registration Page</h2>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <label for="fname" id="fname">First Name:</label>
+            </td>
+            <td>
+                <input type="text" id="fname" name="fname" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lname" id="lname">Last Name:</label>
+            </td>
+            <td>
+                <input type="text" id="lname" name="lname" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email" id="email">Email:</label>
+            </td>
+            <td>
+                <input type="email" id="email" name="email" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pass" id="pass">Password:</label>
+            </td>
+            <td>
+                <input type="password" id="pass" name="pass" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rpass" id="rpass">Repeat Password:</label>
+            </td>
+            <td>
+                <input type="password" id="rpass" name="rpass" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="bdate" id="bdate">Birth Date:</label>
+            </td>
+            <td>
+                <input type="date" id="bdate" name="bdate" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pic" id="pic">User Picture:</label>
+            </td>
+            <td>
+                <input type="file" id="pic" name="pic">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="gender" id="gender">Gender:</label>
+            </td>
+            <td>
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="faculty" id="faculty">Faculty of:</label>
+            </td>
+            <td>
+                <select name="faculty" id="faculty">
+                    <option value="" disabled selected>-- select option --</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="Medicine">Medicine</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Dentistry">Dentistry</option>
+                    <option value="Business">Business</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">
+                <label for="interests" id="interests">Interests:</label>
+            </td>
+            <td>
+                <input type="checkbox" name="interests" id="programming">
+                <label for="programming">Programming</label><br>
+
+                <input type="checkbox" name="interests" id="swimming">
+                <label for="swimming">Swimming</label><br>
+
+                <input type="checkbox" name="interests" id="reading">
+                <label for="reading">Reading</label><br>
+
+                <input type="checkbox" name="interests" id="football">
+                <label for="football">Football</label><br>
+            </td>
+        </tr>
+        <tr>
+            <td>About you:</td>
+            <td>
+                <textarea name="about" id="about"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>I agreed to terms and condition</td>
+            <td>
+                <input type="checkbox" name="terms" id="terms" required>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Register">
+                <input type="reset" value="Reset">
+                <a href="{% url 'myuser:login'%}" style="margin: 10px;">Login</a>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

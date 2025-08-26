@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Update Track
+{% endblock %}
+
+{% block content %}
+<h1> Update Track</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="track">Track Name:</label>
+    <input type="text" id="track" name="track" value ="{{track.name}}">
+    <input type="submit" id="Insert Track">
+</form>
+{% endblock %}

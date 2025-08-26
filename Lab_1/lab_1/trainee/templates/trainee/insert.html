@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block title%}
+    Insert Trainee
+{% endblock %}
+
+{% block content %}
+<h1>Insert Trainee</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="trName">Name:</label>
+    <input type="text" id="trName" name="trName">
+    <br><br>
+    <label for="trEmail">Email:</label>
+    <input type="email" id="trEmail" name="trEmail">
+    <br><br>
+    <select id="trtrack" name="trtrack">
+        {% for track in tracks %}
+        <option value="{{track.id}}">{{track.name}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <label for="trImage">Image:</label>
+    <input type="file" id="trImage" name="trImage">
+    <br><br>
+    <input type="submit" value="Insert Trainee">
+</form>
+{% endblock %}

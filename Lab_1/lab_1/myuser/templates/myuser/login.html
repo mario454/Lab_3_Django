@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% load static %}
+
+{%block style %}
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<h1>Hello from Login</h1>
+
+<a href="{% url 'myuser:logout'%}">Logout</a>
+
+{% endblock %}
